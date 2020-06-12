@@ -18,13 +18,23 @@ Where Xij is data of month-i in year-j while mean(X)i is average data for month-
 - **Simple regression** will apply to indicate the correlation between rainfall anomaly in each area to anomaly of SST in the Pacific Ocean which represent ENSO signals. Y = a + bX, where: Y = Rainfall anomaly, a = Y intercept, b = Slope, X = SST anomaly, If the correlation is not significant (p-value > 0.05, slope is set to 0 (zero).
 
 ## Data
+Timor-Leste data are provided for example analysis, both data came from below.
 - 35 years (1981-2017) monthly rainfall data used in the analysis are downloaded from Climate Hazards Center - UC Santa Barbara (https://chc.ucsb.edu/data-sets/chirps), and 
 - SST anomaly in NINO-3.4 region from ERSST v5 of National Oceanic and Atmospheric Administration (NOAA) (https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/detrend.nino34.ascii.txt). 
 
-## Output
+Rainfall data available in GeoTIFF, but SST is in text format. In order to do pixel-wise regression between two rasters, both data must available in GeoTIFF raster format and in the same dimension (width and height). As the SST data is only from single location in NINO3.4 then we need to do some data tweak and manipulation. Follow the procedure as written in this blog post: https://benny.istan.to/blog/20190708-pixel-wise-regression-between-rainfall-and-sea-surface-temperature 
+
+## Contents
 - A raster file (GeoTIFF) from the slope and correlation of both data.
 - R script for the pixel-wise regression.
-- Documentation on the approach and work steps.
+
+## Example output
+- Slope map.
+![Slope](/Rplot_slope.png)
+- Correlation map.
+![Correlation](/Rplot_correlation.png)
+- Pvalue map.
+![Pvalue](/Rplot_pvalue.png)
 
 ## References
 - https://matinbrandt.wordpress.com/2014/05/26/pixel-wise-regression-between-two-raster-time-series/ 
